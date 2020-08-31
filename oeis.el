@@ -25,7 +25,7 @@ Treats all non numeric characters as separators."
   (let ((url (build-oeis-query numeric-sequence "short")))
     (eww url)))
 
-(defun oeis-browse (numeric-sequence)
+(defun oeis (numeric-sequence)
   "open the OEIS site in your browser.
    When used interactively uses the current selected text.
    Treats non numeric characters as separators so
