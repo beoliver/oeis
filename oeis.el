@@ -1,7 +1,7 @@
 
 (defun string-to-list-of-numbers (s)
   "Create a list of numbers from a string.
-Treats all non numeric characters are separators."
+Treats all non numeric characters as separators."
   (mapcar #'string-to-number
 	  (split-string s "[^0-9]+" t)))
 
@@ -26,6 +26,11 @@ Treats all non numeric characters are separators."
     (eww url)))
 
 (defun oeis-browse (numeric-sequence)
+  "open the OEIS site in your browser.
+   When used interactively uses the current selected text.
+   Treats non numeric characters as separators so
+   1 2 3 = 1,2,3 = 1;2;3 = 1. foo 2.bar 3:baz etc
+   "
   (interactive (when (use-region-p)
                  (list (string-to-list-of-numbers
 			(buffer-substring-no-properties
